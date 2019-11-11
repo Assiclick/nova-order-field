@@ -98,6 +98,9 @@ export default {
   computed: {
     resourceId() {
       return this.$parent.resource.id.value;
+    },
+    parentList() {
+      return this.$parent.$parent.$parent.$parent.$parent.$parent;
     }
   },
   methods: {
@@ -114,7 +117,7 @@ export default {
             type: "success"
           });
 
-          this.$router.go(this.$router.currentRoute);
+          this.parentList.getResources();
         });
     }
   }
